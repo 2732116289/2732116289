@@ -1,0 +1,36 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "cppbuild",
+			"label": "C/C++: g++ 生成活动文件",
+			"command": "/usr/bin/g++",
+			"args": [
+				"-fdiagnostics-color=always",
+				"-g",
+				"${file}",
+				"-o",
+				"${fileDirname}/${fileBasenameNoExtension}.out",
+				"-lSDL2",
+				// "-lSLD2main",
+				"-lSDL2_image",
+				"-lSDL2_ttf",
+				"-lSDL2_mixer",
+				"-lGL",
+				"-lGLU",
+				"-lglut"
+			],
+			"options": {
+				"cwd": "${fileDirname}"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"detail": "编译器: /usr/bin/g++"
+		}
+	]
+}
