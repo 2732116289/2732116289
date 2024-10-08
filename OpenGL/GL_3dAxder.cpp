@@ -22,7 +22,7 @@ void drawText(float x, float y, float z, const std::string &text)
     glRasterPos3d(x, y, z); // 移动到指定位置
     for (char c : text)
     {
-        glutBitmapCharacter(GLUT_BITMAP_8_BY_13, c);
+        glutBitmapCharacter(GLUT_BITMAP_9_BY_15, c);
     }
     glPopMatrix();
 }
@@ -55,10 +55,10 @@ void display()
     glLineWidth(2.0);
     glBegin(GL_LINES);
     glColor3f(1.0, 0.0, 0.0);
-    glVertex3f(0, 0, 0);
+    glVertex3f(-1, 0, 0);
     glVertex3f(1, 0, 0); // X轴
     glColor3f(0.0, 1.0, 0.0);
-    glVertex3f(0, 0, 0);
+    glVertex3f(0, -1, 0);
     glVertex3f(0, 1, 0); // Y轴
     glColor3f(0.0, 0.0, 1.0);
     glVertex3f(0, 0, -1);
