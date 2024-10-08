@@ -61,31 +61,34 @@ void display()
     glVertex3f(0, 0, 0);
     glVertex3f(0, 1, 0); // Y轴
     glColor3f(0.0, 0.0, 1.0);
-    glVertex3f(0, 0, 0);
+    glVertex3f(0, 0, -1);
     glVertex3f(0, 0, 1); // Z轴
     glEnd();
 
     glColor3f(0.5, 0.5, 0.5);
-    for (float i = 0.1; i < 0.9; i += 0.1)
+    for (int i = -9; i <= 9; i ++)
     {
-        if (i == 0)
+        if (i == 0){
+            drawText(0, 0, 0, "0");
             continue;
+        }
         glBegin(GL_LINES);
-        glVertex3f(i, 0, 0);
-        glVertex3f(i, 0.03, 0);
+        glVertex3f(i*0.1, 0, 0);
+        glVertex3f(i*0.1, 0.03, 0);
         glEnd();
         glBegin(GL_LINES);
-        glVertex3f(0, i, 0);
-        glVertex3f(0, i, 0.03);
+        glVertex3f(0, i*0.1, 0);
+        glVertex3f(0, i*0.1, 0.03);
         glEnd();
         glBegin(GL_LINES);
-        glVertex3f(0, 0, i);
-        glVertex3d(0, 0.03, i);
+        glVertex3f(0, 0, i*0.1);
+        glVertex3d(0, 0.03, i*0.1);
         glEnd();
-        std::string text = formatFloat(i);
-        drawText(i, 0, -0.2, text);
-        drawText(0, i, 0.1, text);
-        drawText(0.2, 0, i, text);
+        std::string text = std::to_string(i);
+        std::cout << "text : " << text << " i = " << i*0.1 << std::endl;
+        drawText(i*0.1, 0, -0.2, text);
+        drawText(0, i*0.1, 0.1, text);
+        drawText(0.2, 0, i*0.1, text);
     }
 
     // 绘制箭头
