@@ -6,7 +6,7 @@
 
 // 视角控制变量
 float angle = 0.0f;
-float angleX = -2.8f, angleY = -5.8f; // 相机位置
+float angleX = -2.3f, angleY = -5.7f; // 相机位置
 
 // 格式化浮点数
 std::string formatFloat(float f)
@@ -85,7 +85,7 @@ void display()
         glVertex3d(0, 0.03, i*0.1);
         glEnd();
         std::string text = std::to_string(i);
-        std::cout << "text : " << text << " i = " << i*0.1 << std::endl;
+        // std::cout << "text : " << text << " i = " << i*0.1 << std::endl;
         drawText(i*0.1, 0, -0.2, text);
         drawText(0, i*0.1, 0.1, text);
         drawText(0.2, 0, i*0.1, text);
