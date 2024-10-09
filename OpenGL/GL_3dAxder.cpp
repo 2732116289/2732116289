@@ -6,7 +6,9 @@
 
 // 视角控制变量
 float angle = 0.0f;
-float angleX = -2.3f, angleY = -5.7f; // 相机位置
+float angleX = -2.6f, angleY = -5.9f; // 相机位置
+int choise = 0;
+std::string str = {" <<---"};
 
 // 格式化浮点数
 std::string formatFloat(float f)
@@ -115,37 +117,90 @@ void display()
     drawText(0.0, 0.0, 1.15, "Y");
     drawText(1.15, 0.0, 0.0, "X");
 
-    glPushMatrix(); // 保存当前矩阵
-    glTranslatef(0.3, 0.3, 0.3);
-    glColor3f(0.5, 0.5, 1);
-    glutSolidCube(0.2);
-    glColor3f(0.3, 0.4, 0.0);
-    glutWireCube(0.2);
+    glColor3b(1.0, 0.0, 0);
 
-    glColor3f(0.1, 0.2, 1.0);
-    glTranslatef(-1, 0.0, 0.0);
-    glutSolidTorus(0.1, 0.2, 10, 10);
-    glColor3f(0.0, 0.2, 0.3);
-    glutWireTorus(0.1, 0.2, 10, 10);
+    if(choise == 1){
+        drawText(1, 1.8, 1, "1.Cube" + str);
+        drawText(1, 1.7, 1, "2.Torus");
+        drawText(1, 1.6, 1, "3.Sphere");
+        drawText(1, 1.5, 1, "4.Dodecahedron");
+        drawText(1, 1.4, 1, "5.EXIT");
+    }
+    else if(choise == 2){
+        drawText(1, 1.8, 1, "1.Cube");
+        drawText(1, 1.7, 1, "2.Torus" + str);
+        drawText(1, 1.6, 1, "3.Sphere");
+        drawText(1, 1.5, 1, "4.Dodecahedron");
+        drawText(1, 1.4, 1, "5.EXIT");
+        }
+    else if (choise == 3){
+        drawText(1, 1.8, 1, "1.Cube");
+        drawText(1, 1.7, 1, "2.Torus");
+        drawText(1, 1.6, 1, "3.Sphere" + str);
+        drawText(1, 1.5, 1, "4.Dodecahedron");  
+        drawText(1, 1.4, 1, "5.EXIT");  
+        }
+    else if(choise == 4){
+        drawText(1, 1.8, 1, "1.Cube");
+        drawText(1, 1.7, 1, "2.Torus");
+        drawText(1, 1.6, 1, "3.Sphere");
+        drawText(1, 1.5, 1, "4.Dodecahedron" + str);
+        drawText(1, 1.4, 1, "5.EXIT");
+        }
+    else if(choise == 5){
+        exit(0);
+    }
+    else{
+        drawText(1, 1.8, 1, "1.Cube");
+        drawText(1, 1.7, 1, "2.Torus");
+        drawText(1, 1.6, 1, "3.Sphere");
+        drawText(1, 1.5, 1, "4.Dodecahedron");
+        drawText(1, 1.4, 1, "5.EXIT");
+    }
 
-    glTranslatef(0.0, 0.0, -1.0);
-    glColor3f(1.0, 0.5, 0.5);
-    glutSolidSphere(0.2, 10, 10);
-    glColor3f(0.0, 0.0, 0.5);
-    glutWireSphere(0.2, 10, 10);
+    switch (choise)
+    {
+        case 1:
+            glPushMatrix(); // 保存当前矩阵
+            glTranslatef(0.3, 0.3, 0.3);
+            glColor3f(0.5, 0.5, 1);
+            glutSolidCube(0.2);
+            glColor3f(0.3, 0.4, 0.0);
+            glutWireCube(0.2);
+            break;
 
-    glTranslatef(0.0, -1.0, 1.0);
-    glColor3f(0.5, 1.0, 0.5);
-    glScalef(0.1, 0.1, 0.1);
-    glutSolidDodecahedron();
-    glColor3f(0.0, 0.4, 0.0);
-    glutWireDodecahedron();
+        case 2:
+            glPushMatrix();
+            glColor3f(0.1, 0.2, 1.0);
+            glTranslatef(-0.6, -0.5, -0.2);
+            glutSolidTorus(0.1, 0.2, 10, 10);
+            glColor3f(0.0, 0.2, 0.3);
+            glutWireTorus(0.1, 0.2, 10, 10);
+            break;
 
-    glTranslatef(10.0, -2.0, 1.0);
-    glColor3f(0.7, 0.2, 1);
-    glutSolidTeapot(3.0);
-    glColor3f(0.2, 0.0, 0.0);
-    glutWireTeapot(3.0);
+        case 3:
+            glPushMatrix();
+            glTranslatef(0.5, 0.3, -0.7);
+            glColor3f(1.0, 0.5, 0.5);
+            glutSolidSphere(0.2, 10, 10);
+            glColor3f(0.0, 0.0, 0.5);
+            glutWireSphere(0.2, 10, 10);
+            break;
+
+        case 4:
+            glPushMatrix();
+            glTranslatef(0.5, -0.5, 0.5);
+            glColor3f(0.5, 1.0, 0.5);
+            glScalef(0.1, 0.1, 0.1);
+            glutSolidDodecahedron();
+            glColor3f(0.0, 0.4, 0.0);
+            glutWireDodecahedron();
+            break;
+
+        default:
+            drawText(1.0, 1.0, 1.0, "Invalid key!");
+            break;
+    }
 
 
     glPopMatrix(); // 恢复矩阵
@@ -175,7 +230,10 @@ void keyboard(unsigned char key, int x, int y)
     default:
         break;
     }
-    std::cout << "angleX: " << angleX << " angleY: " << angleY << std::endl;
+    int num = key - '0';
+    if(num >= 1 && num <= 5)
+        choise = num;
+    std::cout << "angleX: " << angleX << " angleY: " << angleY << " choise: " << choise << std::endl;
     glutPostRedisplay(); // 重新绘制场景
 }
 
