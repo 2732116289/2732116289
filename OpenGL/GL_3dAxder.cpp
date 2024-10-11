@@ -10,14 +10,6 @@ float angleX = -2.6f, angleY = -5.9f; // 相机位置
 int choise = 0;
 std::string str = {" <<---"};
 
-// 格式化浮点数
-std::string formatFloat(float f)
-{
-    std::ostringstream stream;
-    stream << std::fixed << std::setprecision(2) << f; // 格式化浮点数
-    return stream.str();
-}
-
 void drawText(float x, float y, float z, const std::string &text)
 {
     glPushMatrix();
