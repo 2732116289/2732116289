@@ -6,7 +6,7 @@
 
 // 视角控制变量
 float angle = 0.0f;
-float angleX = -2.6f, angleY = -5.9f; // 相机位置
+float angleX = 0.7f, angleY = 0.4f; // 相机位置
 int choise = 0;
 std::string str = {" <<---"};
 
@@ -38,13 +38,12 @@ void display()
     glLoadIdentity();
 
     float x1 = 1.0;
-
     // 设置相机视角
     gluLookAt(x1 * cos(angleY) * cos(angleX),
-              x1 * sin(angleX),
               x1 * sin(angleY) * cos(angleX),
+              x1 * sin(angleX),
               0.0, 0.0, 0.0,
-              0.0, 1.0, 0.0);
+              0.0, 0.0, 1.0);
     // 绘制坐标轴
     glLineWidth(2.0);
     glBegin(GL_LINES);
@@ -105,92 +104,91 @@ void display()
     glutSolidCone(0.03, 0.09, 10, 10);
     glPopMatrix();
 
-    drawText(0.0, 1.15, 0.0, "Z");
-    drawText(0.0, 0.0, 1.15, "Y");
+    drawText(0.0, 1.15, 0.0, "Y");
+    drawText(0.0, 0.0, 1.15, "Z");
     drawText(1.15, 0.0, 0.0, "X");
 
-    glColor3b(1.0, 0.0, 0);
 
     if(choise == 1){
-        drawText(1, 1.8, 1, "1.Cube" + str);
-        drawText(1, 1.7, 1, "2.Torus");
-        drawText(1, 1.6, 1, "3.Sphere");
-        drawText(1, 1.5, 1, "4.Dodecahedron");
-        drawText(1, 1.4, 1, "5.EXIT");
+        drawText(0.0, 0.6, 0.8, "1.Cube" + str);
+        drawText(0.0, 0.6, 0.7, "2.Torus");
+        drawText(0.0, 0.6, 0.6, "3.Sphere");
+        drawText(0.0, 0.6, 0.5, "4.Dodecahedron");
+        drawText(0.0, 0.6, 0.4, "5.EXIT");
     }
     else if(choise == 2){
-        drawText(1, 1.8, 1, "1.Cube");
-        drawText(1, 1.7, 1, "2.Torus" + str);
-        drawText(1, 1.6, 1, "3.Sphere");
-        drawText(1, 1.5, 1, "4.Dodecahedron");
-        drawText(1, 1.4, 1, "5.EXIT");
+        drawText(0.0, 0.6, 0.8, "1.Cube");
+        drawText(0.0, 0.6, 0.7, "2.Torus" + str);
+        drawText(0.0, 0.6, 0.6, "3.Sphere");
+        drawText(0.0, 0.6, 0.5, "4.Dodecahedron");
+        drawText(0.0, 0.6, 0.4, "5.EXIT");
         }
     else if (choise == 3){
-        drawText(1, 1.8, 1, "1.Cube");
-        drawText(1, 1.7, 1, "2.Torus");
-        drawText(1, 1.6, 1, "3.Sphere" + str);
-        drawText(1, 1.5, 1, "4.Dodecahedron");  
-        drawText(1, 1.4, 1, "5.EXIT");  
+        drawText(0.0, 0.61, 0.8, "1.Cube");
+        drawText(0.0, 0.6, 0.7, "2.Torus");
+        drawText(0.0, 0.6, 0.6, "3.Sphere" + str);
+        drawText(0.0, 0.6, 0.5, "4.Dodecahedron");
+        drawText(0.0, 0.6, 0.4, "5.EXIT");
         }
     else if(choise == 4){
-        drawText(1, 1.8, 1, "1.Cube");
-        drawText(1, 1.7, 1, "2.Torus");
-        drawText(1, 1.6, 1, "3.Sphere");
-        drawText(1, 1.5, 1, "4.Dodecahedron" + str);
-        drawText(1, 1.4, 1, "5.EXIT");
+        drawText(0.0, 0.6, 0.8, "1.Cube");
+        drawText(0.0, 0.6, 0.7, "2.Torus");
+        drawText(0.0, 0.6, 0.6, "3.Sphere");
+        drawText(0.0, 0.6, 0.5, "4.Dodecahedron" + str);
+        drawText(0.0, 0.6, 0.4, "5.EXIT");
         }
     else if(choise == 5){
         exit(0);
     }
     else{
-        drawText(1, 1.8, 1, "1.Cube");
-        drawText(1, 1.7, 1, "2.Torus");
-        drawText(1, 1.6, 1, "3.Sphere");
-        drawText(1, 1.5, 1, "4.Dodecahedron");
-        drawText(1, 1.4, 1, "5.EXIT");
+        drawText(0.0, 0.6, 0.8, "1.Cube");
+        drawText(0.0, 0.6, 0.7, "2.Torus");
+        drawText(0.0, 0.6, 0.6, "3.Sphere");
+        drawText(0.0, 0.6, 0.5, "4.Dodecahedron");
+        drawText(0.0, 0.6, 0.4, "5.EXIT");
     }
 
     switch (choise)
     {
-        case 1:
+        case 1: // 绘制立方体
             glPushMatrix(); // 保存当前矩阵
             glTranslatef(0.3, 0.3, 0.3);
             glColor3f(0.5, 0.5, 1);
             glutSolidCube(0.2);
             glColor3f(0.3, 0.4, 0.0);
-            glutWireCube(0.2);
+            glutWireCube(0.2); // 绘制线框立方体
             break;
 
-        case 2:
+        case 2: // 绘制环形体
             glPushMatrix();
             glColor3f(0.1, 0.2, 1.0);
             glTranslatef(-0.6, -0.5, -0.2);
             glutSolidTorus(0.1, 0.2, 10, 10);
             glColor3f(0.0, 0.2, 0.3);
-            glutWireTorus(0.1, 0.2, 10, 10);
+            glutWireTorus(0.1, 0.2, 10, 10); // 绘制线框环形体
             break;
 
-        case 3:
+        case 3: // 绘制球体
             glPushMatrix();
             glTranslatef(0.5, 0.3, -0.7);
             glColor3f(1.0, 0.5, 0.5);
             glutSolidSphere(0.2, 10, 10);
             glColor3f(0.0, 0.0, 0.5);
-            glutWireSphere(0.2, 10, 10);
+            glutWireSphere(0.2, 10, 10); // 绘制线框球体
             break;
 
-        case 4:
+        case 4: // 绘制十二面体
             glPushMatrix();
             glTranslatef(0.5, -0.5, 0.5);
             glColor3f(0.5, 1.0, 0.5);
             glScalef(0.1, 0.1, 0.1);
             glutSolidDodecahedron();
             glColor3f(0.0, 0.4, 0.0);
-            glutWireDodecahedron();
+            glutWireDodecahedron(); // 绘制线框十二面体
             break;
 
-        default:
-            drawText(1.0, 1.0, 1.0, "Invalid key!");
+        default: // 无效按键 
+            drawText(0.0, 0.6, 0.9, "Invalid key!");
             break;
     }
 
@@ -208,10 +206,10 @@ void keyboard(unsigned char key, int x, int y)
     switch (key)
     {
     case 'a':
-        angleY -= 0.1;
+        angleY += 0.1;
         break; // 向左移动
     case 'd':
-        angleY += 0.1;
+        angleY -= 0.1;
         break; // 向右移动
     case 'w':
         angleX -= 0.1;
@@ -242,7 +240,7 @@ int main(int argc, char **argv)
     glutInitWindowSize(800, 600);
     glutCreateWindow("3D Axder and 3D objects --- [left : A |right : D |up : W | down : S]");
 
-    glEnable(GL_DEPTH_TEST || GL_LIGHTING || GL_LIGHT0 || GL_COLOR_MATERIAL || GL_NORMALIZE || GL_CULL_FACE || GL_TEXTURE_2D);
+    glEnable(GL_DEPTH_TEST);
     glutReshapeFunc(reshape);
 
     glutDisplayFunc(display);
