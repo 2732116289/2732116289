@@ -1,36 +1,97 @@
 {
-	"version": "2.0.0",
-	"tasks": [
-		{
-			"type": "cppbuild",
-			"label": "C/C++: g++ 生成活动文件",
-			"command": "/usr/bin/g++",
-			"args": [
-				"-fdiagnostics-color=always",
-				"-g",
-				"${file}",
-				"-o",
-				"${fileDirname}/${fileBasenameNoExtension}.out",
-				"-lSDL2",
-				// "-lSLD2main",
-				"-lSDL2_image",
-				"-lSDL2_ttf",
-				"-lSDL2_mixer",
-				"-lGL",
-				"-lGLU",
-				"-lglut"
-			],
-			"options": {
-				"cwd": "${fileDirname}"
-			},
-			"problemMatcher": [
-				"$gcc"
-			],
-			"group": {
-				"kind": "build",
-				"isDefault": true
-			},
-			"detail": "编译器: /usr/bin/g++"
-		}
-	]
+    "version": "2.0.0",
+    "tasks": [
+        // {
+        //     "type": "cppbuild",
+        //     "label": "C/C++: gcc.exe 生成活动文件",
+        //     "command": "C:/mingw64/bin/gcc.exe",
+        //     "args": [
+        //         "-fdiagnostics-color=always",
+        //         "-g",
+        //         "${file}",
+        //         "-o",
+        //         "${fileDirname}\\${fileBasenameNoExtension}.exe",
+        //         "-leasyx",
+        //         "-lwinmm",
+        //         // "-lSDL2_image",
+        //         // "-lSDL2_ttf",
+        //         // "-lSDL2_minxer",
+        //         "-lSDL2",
+        //         "-lSDL2main",
+        //         "-lws2_32"
+        //     ],
+        //     "options": {
+        //         "cwd": "C:/mingw64/bin"
+        //     },
+        //     "problemMatcher": [
+        //         "$gcc"
+        //     ],
+        //     "group": "build",
+        //     "detail": "编译器: C:/mingw64/bin/gcc.exe"
+        // },
+        {
+            "type": "cppbuild",
+            "label": "C/C++: g++.exe 生成活动文件",
+            "command": "C:\\mingw64\\bin\\g++.exe",
+            "args": [
+                "-fdiagnostics-color=always",
+                "-g",
+                "${file}",
+                "-o",
+                "${fileDirname}\\${fileBasenameNoExtension}.exe",
+                "-leasyx",
+                "-lwinmm",
+                // "-lSDL_image",
+                // "-lSDL_ttf",
+                // "-lSDL_minxer",
+                "-lSDL2",
+                "-lSDL2main",
+                "-lws2_32",
+                "-lglut32",//使用glut
+                "-lglu32",
+                "-lopengl32"
+
+                
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "调试器生成的任务000。"
+        }
+        // {
+        //     "type": "cppbuild",
+        //     "label": "C/C++: cpp.exe 生成活动文件",
+        //     "command": "C:\\mingw64\\bin\\cpp.exe",
+        //     "args": [
+        //         "-fdiagnostics-color=always",
+        //         "-g",
+        //         "${file}",
+        //         "-o",
+        //         "${fileDirname}\\${fileBasenameNoExtension}.exe",
+        //         "-leasyx",
+        //         "-lwinmm",
+        //         // "-lSDL_image",
+        //         // "-lSDL_ttf",
+        //         // "-lSDL_minxer",
+        //         "-lSDL2",
+        //         "-lSDL2main",
+        //         "-lws2_32"
+        //     ],
+        //     "options": {
+        //         "cwd": "${fileDirname}"
+        //     },
+        //     "problemMatcher": [
+        //         "$gcc"
+        //     ],
+        //     "group": "build",
+        //     "detail": "调试器生成的任务123。"
+        // }
+    ]
 }

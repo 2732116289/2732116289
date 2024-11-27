@@ -1,27 +1,23 @@
 {
     "configurations": [
         {
-            "name": "Linux",
+            "name": "Win64",
             "includePath": [
                 "${workspaceFolder}/**",
-                "/usr/include/GL"
+                "C:/SDL2-2.30.2/x86_64-w64-mingw32/include",
+                "C:/SDL2-2.30.2/x86_64-w64-mingw32/bin",
+                "C:/SDL2-2.30.2/x86_64-w64-mingw32/lib"
             ],
-            "defines": [],
-            "compilerPath": "/usr/bin/g++",
-            "cStandard": "c17",
-            "cppStandard": "gnu++17",
-            "intelliSenseMode": "linux-gcc-x64"
-        },
-        {
-            "name": "windows",
-            "includePath": [
-                "${workspaceFolder}/**"
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
             ],
-            "defines": [],
-            "compilerPath": "/usr/bin/gcc",
+            "windowsSdkVersion": "10.0.22000.0",
+            "compilerPath": "C:/mingw64/bin/g++.exe",
             "cStandard": "c17",
-            "cppStandard": "gnu++17",
-            "intelliSenseMode": "linux-gcc-x64"
+            "cppStandard": "c++17",
+            "intelliSenseMode": "gcc-x64"
         }
     ],
     "version": 4

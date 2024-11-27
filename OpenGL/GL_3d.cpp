@@ -1,6 +1,8 @@
 #include <GL/glut.h>
-#include <cmath>
 #include <iostream>
+#include <math.h>
+
+#define M_PI 3.14159265358979323846
 
 float angleX = 0.0; // x轴旋转角度
 float angleY = 0.0; // y轴旋转角度
@@ -59,8 +61,8 @@ void keyboard(unsigned char key, int x, int y) {
 }
 
 void autoRotate() {
-    angleX += 0.01;
-    angleY += 0.02;
+    angleX += 0.001;
+    angleY += 0.002;
     glutPostRedisplay();
 }
 

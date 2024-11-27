@@ -74,7 +74,7 @@ void display() {
     gluLookAt(1.4, 1.0, 0.8, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0);
 
     glPushMatrix(); // 保存当前矩阵
-    glRotatef(angle, 0.0, 1.0, 0.0); // 旋转立方体
+    glRotatef(angle, 0.0, 1.0, 0.0); // 旋转立方佄1�7
     glColor3f(0.0, 1.0, 0.0);
     glutSolidCube(0.5);
     glPopMatrix(); // 恢复矩阵
